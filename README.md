@@ -16,4 +16,4 @@
  Ferris State University - For providing me a great education and the flexibility to explore projects of my choosing.
  Udacity Developing Android Apps Classroom - So much good information.  
  My dad - A guy who I hope this project may turn into something useful for.
- This article [https://medium.com/better-programming/good-code-vs-bad-code-35624b4e91bc] - for having information on what a person should include in their README.
+ This article: [https://medium.com/better-programming/good-code-vs-bad-code-35624b4e91bc] - for having information on what a person should include in their README.
