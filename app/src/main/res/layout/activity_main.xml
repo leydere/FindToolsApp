@@ -8,59 +8,67 @@
     tools:context=".MainActivity"
     android:background="@color/black">
 
-    <!-- top toolbar -->
-    <com.google.android.material.appbar.AppBarLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:id="@+id/relLayout">
 
-        <androidx.appcompat.widget.Toolbar
+        <!-- top relative layout -->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/toolbarTop">
+            android:layout_height="50dp"
+            android:id="@+id/relLayoutTopBar"
+            android:layout_alignParentTop="true">
+
+            <!-- top toolbar -->
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/toolbarTop">
 
 
-        </androidx.appcompat.widget.Toolbar>
+                </androidx.appcompat.widget.Toolbar>
 
-    </com.google.android.material.appbar.AppBarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
 
+        </RelativeLayout>
 
-    <!-- bottom toolbar -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom">
-
-        <androidx.appcompat.widget.Toolbar
+        <!-- middle relative layout -->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/toolbarBottom">
+            android:layout_height="match_parent"
+            android:id="@+id/relLayoutMiddle"
+            android:layout_below="@+id/relLayoutTopBar"
+            android:layout_above="@+id/relLayoutBotBar">
 
-            <LinearLayout
+        </RelativeLayout>
+
+        <!-- bottom relative layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/relLayoutBotBar"
+            android:layout_alignParentBottom="true">
+
+            <!-- bottom toolbar -->
+            <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="100"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="33"
-                    android:src="@drawable/ic_baseline_home_48"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="33"
-                    android:src="@drawable/ic_baseline_search_48"/>
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="33"
-                    android:src="@drawable/ic_baseline_add_48"/>
-            </LinearLayout>
+                android:id="@+id/bottomNavView_Bar"
+                android:background="@color/dominantGrey"
+                app:menu="@menu/bottom_navigation_menu"
+                app:labelVisibilityMode="labeled">
 
 
-        </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-    </com.google.android.material.appbar.AppBarLayout>
-
-
+        </RelativeLayout>
+        
+    </RelativeLayout>
+    
+    
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
