@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="80dp"
                 android:textSize="30sp"
-                android:id="@+id/activityMainTitle"
+                android:id="@+id/activityAddTitle"
                 android:textAlignment="center"
                 android:textColor="@color/dominantGrey"/>
 
@@ -76,8 +76,8 @@
             </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         </RelativeLayout>
-        
+
     </RelativeLayout>
-    
-    
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
