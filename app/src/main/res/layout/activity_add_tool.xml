@@ -70,7 +70,9 @@
                 android:id="@+id/bottomNavView_Bar"
                 android:background="@color/dominantGrey"
                 app:menu="@menu/bottom_navigation_menu"
-                app:labelVisibilityMode="labeled">
+                app:labelVisibilityMode="labeled"
+                app:itemIconTint="@drawable/tab_color"
+                app:itemTextColor="@drawable/tab_color">
 
 
             </com.google.android.material.bottomnavigation.BottomNavigationView>
