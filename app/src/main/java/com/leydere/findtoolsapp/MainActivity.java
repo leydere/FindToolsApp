@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -18,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView title = (TextView) findViewById(R.id.activityMainTitle);
-        title.setText("This is the Home activity.");
+
 
         //code to support override of bottom nav animation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
@@ -52,5 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    public void clickFindButton(View view) {
+        Intent intentFind = new Intent(MainActivity.this, FindToolActivity.class);
+        startActivity(intentFind);
+    }
+
+    public void clickAddButton(View view) {
+        Intent intentAdd = new Intent(MainActivity.this, AddToolActivity.class);
+        startActivity(intentAdd);
     }
 }
