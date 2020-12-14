@@ -45,41 +45,14 @@
             android:layout_below="@+id/relLayoutTopBar"
             android:layout_above="@+id/relLayoutBotBar">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/mainLinearLayout"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/button_find"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Find Tool"
-                    android:drawableTop="@drawable/ic_search_88"
-                    android:backgroundTint="@color/black"
-                    android:drawableTint="@color/dominantGrey"
-                    android:textColor="@color/dominantGrey"
-                    android:layout_marginTop="104dp"
-                    android:onClick="clickFindButton"/>
-
-                <Button
-                    android:id="@+id/button_add"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Add Tool"
-                    android:drawableTop="@drawable/ic_add_88"
-                    android:backgroundTint="@color/black"
-                    android:drawableTint="@color/dominantGrey"
-                    android:textColor="@color/dominantGrey"
-                    android:layout_marginTop="48dp"
-                    android:onClick="clickAddButton"/>
-
-
-
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:textSize="30sp"
+                android:id="@+id/activityAddTitle"
+                android:textAlignment="center"
+                android:textColor="@color/dominantGrey"/>
 
         </RelativeLayout>
 
@@ -105,8 +78,8 @@
             </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         </RelativeLayout>
-        
+
     </RelativeLayout>
-    
-    
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
