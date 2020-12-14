@@ -45,14 +45,141 @@
             android:layout_below="@+id/relLayoutTopBar"
             android:layout_above="@+id/relLayoutBotBar">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:textSize="30sp"
-                android:id="@+id/activityAddTitle"
-                android:textAlignment="center"
-                android:textColor="@color/dominantGrey"/>
+                android:layout_height="match_parent"
+                android:id="@+id/addLinearLayout"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/button_add"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_add_88"
+                    android:backgroundTint="@color/black"
+                    android:tint="@color/dominantGrey"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldToolName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/textFieldToolName"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginRight="56dp"
+                    android:layout_marginBottom="32dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopStart="8dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/textFieldLocation"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginRight="56dp"
+                    android:layout_marginBottom="32dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopStart="8dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textFieldSubLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/textFieldSubLocation"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginRight="56dp"
+                    android:layout_marginBottom="16dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopStart="8dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginRight="56dp"
+                    android:layout_marginTop="16dp">
+
+                    <!-- shape -->
+                    <Button
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        android:background="@drawable/dotted_line_pic_box"
+                        android:layout_gravity="center_vertical"/>
+                    <Space
+                        android:layout_height="match_parent"
+                        android:layout_width="50dp"/>
+                    <!-- camera button -->
+                    <Button
+                        android:id="@+id/button_camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:backgroundTint="@color/black"
+                        android:drawableBottom="@drawable/ic_add_a_photo_88"
+                        android:drawableTint="@color/dominantGrey"
+                        android:onClick="clickCameraButton"
+                        android:text="Add Pic"
+                        android:textColor="@color/dominantGrey"/>
+
+
+                </LinearLayout>
+
+                <!-- submit button -->
+
+                <Button
+                    android:id="@+id/button_submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Add Tool"
+                    android:drawableLeft="@drawable/ic_check_24"
+                    android:backgroundTint="@color/dominantGrey"
+                    android:drawableTint="@color/black"
+                    android:textColor="@color/black"
+                    android:onClick="clickSubmitButton"
+                    />
+
+
+            </LinearLayout>
 
         </RelativeLayout>
 

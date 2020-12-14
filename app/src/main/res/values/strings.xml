@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">FindToolsApp</string>
+
+    <string name="textFieldToolName">Tool Name</string>
+    <string name="textFieldLocation">Location</string>
+    <string name="textFieldSubLocation">Sub-Location</string>
+
 </resources>

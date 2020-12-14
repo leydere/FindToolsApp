@@ -63,4 +63,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intentAdd = new Intent(MainActivity.this, AddToolActivity.class);
         startActivity(intentAdd);
     }
+
+
+    public void clickCameraButton(View view) {
+    }
+
+    public void clickSubmitButton(View view) {
+    }
 }

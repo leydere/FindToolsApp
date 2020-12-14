@@ -19,8 +19,7 @@ public class AddToolActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_tool);
 
-        TextView title = (TextView) findViewById(R.id.activityAddTitle);
-        title.setText("This is the Add Tool activity.");
+
 
         //code to support override of bottom nav animation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
@@ -53,5 +52,6 @@ public class AddToolActivity extends AppCompatActivity {
                 return false;
             }
         });
+
     }
 }
