@@ -78,6 +78,7 @@
                     app:boxCornerRadiusTopStart="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextToolName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -99,6 +100,7 @@
                     app:boxCornerRadiusTopStart="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextLocaton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -120,6 +122,7 @@
                     app:boxCornerRadiusTopStart="8dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextSubLocation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -154,9 +157,8 @@
                         android:backgroundTint="@color/black"
                         android:drawableBottom="@drawable/ic_add_a_photo_88"
                         android:drawableTint="@color/dominantGrey"
-                        android:onClick="clickCameraButton"
                         android:text="Add Pic"
-                        android:textColor="@color/dominantGrey"/>
+                        android:textColor="@color/dominantGrey" />
 
 
                 </LinearLayout>
@@ -175,7 +177,6 @@
                     android:backgroundTint="@color/dominantGrey"
                     android:drawableTint="@color/black"
                     android:textColor="@color/black"
-                    android:onClick="clickSubmitButton"
                     />
 
 

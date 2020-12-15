@@ -4,7 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,11 +18,49 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AddToolActivity extends AppCompatActivity {
 
+    Button button_submit, button_camera;
+    EditText editTextToolName, editTextLocation, editTextSubLocation;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_tool);
 
+        button_submit = findViewById(R.id.button_submit);
+        button_camera = findViewById(R.id.button_camera);
+        editTextToolName = findViewById(R.id.editTextToolName);
+        editTextLocation = findViewById(R.id.editTextLocaton);
+        editTextSubLocation = findViewById(R.id.editTextSubLocation);
+
+        button_submit.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                ToolModel toolModel;
+                try{
+                    toolModel = new ToolModel(-1, editTextToolName.getText().toString(), editTextLocation.getText().toString(), editTextSubLocation.getText().toString(), "dummyPath", false);
+                    Toast.makeText(AddToolActivity.this, toolModel.toString(), Toast.LENGTH_LONG).show();
+                }
+                catch (Exception e) {
+                    Toast.makeText(AddToolActivity.this, "input error", Toast.LENGTH_SHORT).show();
+                    toolModel = new ToolModel(-1, "error", "error", "error", "error", false);
+                }
+
+                DatabaseHelper databaseHelper = new DatabaseHelper(AddToolActivity.this);
+                boolean success = databaseHelper.addOne(toolModel);
+
+                Toast.makeText(AddToolActivity.this, "Success == " + success, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+        button_camera.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(AddToolActivity.this, "camera button", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         //code to support override of bottom nav animation
@@ -54,4 +96,5 @@ public class AddToolActivity extends AppCompatActivity {
         });
 
     }
+
 }

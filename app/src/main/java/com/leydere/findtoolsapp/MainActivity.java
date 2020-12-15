@@ -8,18 +8,21 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button button_find, button_add;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //TODO need to add find by view id's
 
         //code to support override of bottom nav animation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
@@ -65,9 +68,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void clickCameraButton(View view) {
-    }
 
-    public void clickSubmitButton(View view) {
-    }
 }
