@@ -18,6 +18,14 @@ public class ToolModel {
         this.isCheckedOut = isCheckedOut;
     }
 
+    public ToolModel(String toolName, String location, String subLocation, String imagePath, boolean isCheckedOut) {
+        this.toolName = toolName;
+        this.location = location;
+        this.subLocation = subLocation;
+        this.imagePath = imagePath;
+        this.isCheckedOut = isCheckedOut;
+    }
+
     // unlikely will need for this app, but part of youtube tutorial
     @Override
     public String toString() {

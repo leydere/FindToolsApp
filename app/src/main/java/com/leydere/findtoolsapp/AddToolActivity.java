@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,6 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
 
 public class AddToolActivity extends AppCompatActivity {
 
@@ -38,16 +40,16 @@ public class AddToolActivity extends AppCompatActivity {
 
                 ToolModel toolModel;
                 try{
-                    toolModel = new ToolModel(-1, editTextToolName.getText().toString(), editTextLocation.getText().toString(), editTextSubLocation.getText().toString(), "dummyPath", false);
+                    toolModel = new ToolModel(editTextToolName.getText().toString(), editTextLocation.getText().toString(), editTextSubLocation.getText().toString(), "dummyPath", false);
                     Toast.makeText(AddToolActivity.this, toolModel.toString(), Toast.LENGTH_LONG).show();
                 }
                 catch (Exception e) {
                     Toast.makeText(AddToolActivity.this, "input error", Toast.LENGTH_SHORT).show();
-                    toolModel = new ToolModel(-1, "error", "error", "error", "error", false);
+                    toolModel = new ToolModel("error", "error", "error", "error", false);
                 }
 
                 DatabaseHelper databaseHelper = new DatabaseHelper(AddToolActivity.this);
-                boolean success = databaseHelper.addOne(toolModel);
+                boolean success = databaseHelper.addRecord(toolModel);
 
                 Toast.makeText(AddToolActivity.this, "Success == " + success, Toast.LENGTH_SHORT).show();
             }
@@ -59,6 +61,20 @@ public class AddToolActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(AddToolActivity.this, "camera button", Toast.LENGTH_SHORT).show();
+
+                /*
+                //temp code to test db helper
+                DatabaseHelper databaseHelper = new DatabaseHelper(AddToolActivity.this);
+                List<ToolModel> allRecords = databaseHelper.getAllRecords();
+                Toast.makeText(AddToolActivity.this, allRecords.toString(), Toast.LENGTH_LONG).show();
+                */
+
+                /*
+                //create an array adapter to display db records
+                ArrayAdapter toolArrayAdapter = new ArrayAdapter<ToolModel>(AddToolActivity.this, android.R.layout.simple_list_item_1, allRecords);
+                //cannot link to onScreen item yet; command is "lv_" followed by on screen item
+                lv_toolList.setAdapter(toolArrayAdapter);
+                */
             }
         });
 

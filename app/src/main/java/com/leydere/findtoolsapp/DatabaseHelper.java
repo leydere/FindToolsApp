@@ -2,10 +2,14 @@ package com.leydere.findtoolsapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -42,7 +46,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean addOne(ToolModel toolModel) {
+    public boolean addRecord(ToolModel toolModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -55,5 +59,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long insert = db.insert(TABLE_TOOL_COLLECTION, null, cv);
         if (insert == -1) { return false; } else { return true; }
 
+    }
+
+    // this is select all function in demo; example only - no use in this app
+    public List<ToolModel> getAllRecords(){
+
+        List<ToolModel> returnList = new ArrayList();
+        String queryString = "SELECT * FROM " + TABLE_TOOL_COLLECTION;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()) {
+            //loop through cursor (result set) and create new customer objects
+            //put them into the return list
+            do {
+                int toolID = cursor.getInt(0);
+                String toolName = cursor.getString(1);
+                String location = cursor.getString(2);
+                String subLocation = cursor.getString(3);
+                String imagePath = cursor.getString(4);
+                boolean isCheckedOut = cursor.getInt(5) == 1 ? true: false; //ternary operator = basically an if statement that reads if result is equal to 1 return true else return false
+
+                ToolModel newTool = new ToolModel(toolID, toolName, location,subLocation,imagePath,isCheckedOut);
+                returnList.add(newTool);
+
+            } while (cursor.moveToNext());
+
+        } else {
+            // failure: do not add anything to list
+        }
+
+        //close both cursor and db when done
+        cursor.close();
+        db.close();
+
+        return returnList;
     }
 }
