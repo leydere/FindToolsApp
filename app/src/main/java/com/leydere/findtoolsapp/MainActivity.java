@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button button_find, button_add;
+    Button button_find_nav, button_add_nav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //TODO need to add find by view id's
+        button_find_nav = findViewById(R.id.button_find_nav);
+        button_add_nav = findViewById(R.id.button_add_nav);
 
         //code to support override of bottom nav animation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
@@ -55,18 +57,22 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        button_find_nav.setOnClickListener(new View.OnClickListener(){
+           @Override
+           public void onClick(View v) {
+               Intent intentFind = new Intent(MainActivity.this, FindToolActivity.class);
+               startActivity(intentFind);
+           }
+        });
+
+        button_add_nav.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intentAdd = new Intent(MainActivity.this, AddToolActivity.class);
+                startActivity(intentAdd);
+            }
+        });
+
     }
-
-    public void clickFindButton(View view) {
-        Intent intentFind = new Intent(MainActivity.this, FindToolActivity.class);
-        startActivity(intentFind);
-    }
-
-    public void clickAddButton(View view) {
-        Intent intentAdd = new Intent(MainActivity.this, AddToolActivity.class);
-        startActivity(intentAdd);
-    }
-
-
-
 }

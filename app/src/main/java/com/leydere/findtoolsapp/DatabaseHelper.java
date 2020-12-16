@@ -61,6 +61,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    //So I just rebuilt the example method but with a string input
+    public List<ToolModel> getSearchResults(String textInput){
+        List<ToolModel> compiledResults = new ArrayList();
+        String queryString = "SELECT * FROM " + TABLE_TOOL_COLLECTION +
+                " WHERE TOOL_NAME LIKE '%" + textInput + "%'";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int toolID = cursor.getInt(0);
+                String toolName = cursor.getString(1);
+                String location = cursor.getString(2);
+                String subLocation = cursor.getString(3);
+                String imagePath = cursor.getString(4);
+                boolean isCheckedOut = cursor.getInt(5) == 1 ? true: false; //ternary operator = basically an if statement that reads if result is equal to 1 return true else return false
+
+                ToolModel newTool = new ToolModel(toolID, toolName, location,subLocation,imagePath,isCheckedOut);
+                compiledResults.add(newTool);
+                //TODO probably need to check if tool is checked out or not at some point
+
+            } while (cursor.moveToNext());
+        } else {
+            //TODO maybe some sort of exception or feedback?
+        }
+
+        cursor.close();
+        db.close();
+
+        return compiledResults;
+    }
+
     // this is select all function in demo; example only - no use in this app
     public List<ToolModel> getAllRecords(){
 

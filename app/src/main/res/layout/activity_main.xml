@@ -52,7 +52,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button_find"
+                    android:id="@+id/button_find_nav"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -61,11 +61,10 @@
                     android:backgroundTint="@color/black"
                     android:drawableTint="@color/dominantGrey"
                     android:textColor="@color/dominantGrey"
-                    android:layout_marginTop="104dp"
-                    android:onClick="clickFindButton"/>
+                    android:layout_marginTop="104dp"/>
 
                 <Button
-                    android:id="@+id/button_add"
+                    android:id="@+id/button_add_nav"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -74,8 +73,7 @@
                     android:backgroundTint="@color/black"
                     android:drawableTint="@color/dominantGrey"
                     android:textColor="@color/dominantGrey"
-                    android:layout_marginTop="48dp"
-                    android:onClick="clickAddButton"/>
+                    android:layout_marginTop="48dp"/>
 
 
 

@@ -45,14 +45,63 @@
             android:layout_below="@+id/relLayoutTopBar"
             android:layout_above="@+id/relLayoutBotBar">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="80dp"
-                android:textSize="30sp"
-                android:id="@+id/activityFindTitle"
-                android:textAlignment="center"
-                android:textColor="@color/dominantGrey"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/button_find"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/find_button_text"
+                        android:drawableTop="@drawable/ic_search_88"
+                        android:backgroundTint="@color/black"
+                        android:drawableTint="@color/dominantGrey"
+                        android:textColor="@color/dominantGrey"
+                        android:layout_marginTop="88dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textFieldFindTool"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/textFieldFindTool"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="56dp"
+                        android:layout_marginRight="56dp"
+                        app:boxCornerRadiusBottomEnd="8dp"
+                        app:boxCornerRadiusTopEnd="8dp"
+                        app:boxCornerRadiusBottomStart="8dp"
+                        app:boxCornerRadiusTopStart="8dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/editTextFindTool"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ListView
+                        android:id="@+id/find_tool_listview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="56dp"
+                        android:layout_marginRight="56dp"
+                        android:background="@color/dominantGrey"
+                        android:textColor="@color/black"
+                        app:boxCornerRadiusBottomEnd="8dp"
+                        app:boxCornerRadiusTopEnd="8dp"
+                        app:boxCornerRadiusBottomStart="8dp"
+                        app:boxCornerRadiusTopStart="8dp">
+
+
+                    </ListView>
+
+                </LinearLayout>
 
         </RelativeLayout>
 

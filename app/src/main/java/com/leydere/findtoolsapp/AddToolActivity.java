@@ -52,6 +52,11 @@ public class AddToolActivity extends AppCompatActivity {
                 boolean success = databaseHelper.addRecord(toolModel);
 
                 Toast.makeText(AddToolActivity.this, "Success == " + success, Toast.LENGTH_SHORT).show();
+
+                editTextToolName.setText("");
+                editTextLocation.setText("");
+                editTextSubLocation.setText("");
+                findViewById(R.id.addLinearLayout).requestFocus();
             }
         });
 

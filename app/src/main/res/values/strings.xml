@@ -4,5 +4,7 @@
     <string name="textFieldToolName">Tool Name</string>
     <string name="textFieldLocation">Location</string>
     <string name="textFieldSubLocation">Sub-Location</string>
+    <string name="textFieldFindTool">Enter search here...</string>
+    <string name="find_button_text">Then Tap Here</string>
 
 </resources>
