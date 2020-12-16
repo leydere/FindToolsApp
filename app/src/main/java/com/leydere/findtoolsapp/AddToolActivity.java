@@ -67,23 +67,11 @@ public class AddToolActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(AddToolActivity.this, "camera button", Toast.LENGTH_SHORT).show();
 
-                /*
-                //temp code to test db helper
-                DatabaseHelper databaseHelper = new DatabaseHelper(AddToolActivity.this);
-                List<ToolModel> allRecords = databaseHelper.getAllRecords();
-                Toast.makeText(AddToolActivity.this, allRecords.toString(), Toast.LENGTH_LONG).show();
-                */
-
-                /*
-                //create an array adapter to display db records
-                ArrayAdapter toolArrayAdapter = new ArrayAdapter<ToolModel>(AddToolActivity.this, android.R.layout.simple_list_item_1, allRecords);
-                //cannot link to onScreen item yet; command is "lv_" followed by on screen item
-                lv_toolList.setAdapter(toolArrayAdapter);
-                */
             }
         });
 
 
+        //region Bottom Nav Bar and Support
         //code to support override of bottom nav animation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -115,6 +103,7 @@ public class AddToolActivity extends AppCompatActivity {
                 return false;
             }
         });
+        //endregion
 
     }
 

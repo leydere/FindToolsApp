@@ -48,15 +48,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean addRecord(ToolModel toolModel) {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
+        ContentValues contentValues = new ContentValues();
 
-        cv.put(COLUMN_TOOL_NAME, toolModel.getToolName());
-        cv.put(COLUMN_LOCATION, toolModel.getLocation());
-        cv.put(COLUMN_SUB_LOCATION, toolModel.getSubLocation());
-        cv.put(COLUMN_IMAGE_PATH, toolModel.getImagePath());
-        cv.put(COLUMN_IS_CHECKED_OUT, toolModel.getIsCheckedOut());
+        contentValues.put(COLUMN_TOOL_NAME, toolModel.getToolName());
+        contentValues.put(COLUMN_LOCATION, toolModel.getLocation());
+        contentValues.put(COLUMN_SUB_LOCATION, toolModel.getSubLocation());
+        contentValues.put(COLUMN_IMAGE_PATH, toolModel.getImagePath());
+        contentValues.put(COLUMN_IS_CHECKED_OUT, toolModel.getIsCheckedOut());
 
-        long insert = db.insert(TABLE_TOOL_COLLECTION, null, cv);
+        long insert = db.insert(TABLE_TOOL_COLLECTION, null, contentValues);
         if (insert == -1) { return false; } else { return true; }
 
     }
@@ -68,6 +68,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 " WHERE TOOL_NAME LIKE '%" + textInput + "%'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(queryString, null);
+        //In Mitch video he skips the list<> and just returns the cursor from db.rawquery
+        //turns out he does something similar to the below but in his activity class instead of DBhelper
+
 
         if (cursor.moveToFirst()) {
             do {
@@ -93,38 +96,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return compiledResults;
     }
 
-    // this is select all function in demo; example only - no use in this app
-    public List<ToolModel> getAllRecords(){
-
-        List<ToolModel> returnList = new ArrayList();
-        String queryString = "SELECT * FROM " + TABLE_TOOL_COLLECTION;
+    //names only based on search result
+    public List<String> nameSearchResults(String textInput){
+        List<String> compiledResults = new ArrayList();
+        String queryString = "SELECT * FROM " + TABLE_TOOL_COLLECTION +
+                " WHERE TOOL_NAME LIKE '%" + textInput + "%'";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(queryString, null);
 
         if (cursor.moveToFirst()) {
-            //loop through cursor (result set) and create new customer objects
-            //put them into the return list
             do {
-                int toolID = cursor.getInt(0);
                 String toolName = cursor.getString(1);
-                String location = cursor.getString(2);
-                String subLocation = cursor.getString(3);
-                String imagePath = cursor.getString(4);
-                boolean isCheckedOut = cursor.getInt(5) == 1 ? true: false; //ternary operator = basically an if statement that reads if result is equal to 1 return true else return false
-
-                ToolModel newTool = new ToolModel(toolID, toolName, location,subLocation,imagePath,isCheckedOut);
-                returnList.add(newTool);
-
+                compiledResults.add(toolName);
             } while (cursor.moveToNext());
-
         } else {
-            // failure: do not add anything to list
+            //TODO maybe some sort of exception or feedback?
         }
 
-        //close both cursor and db when done
         cursor.close();
         db.close();
 
-        return returnList;
+        return compiledResults;
     }
+
+    //TODO build the method to display/return a single record for detail activity view
 }

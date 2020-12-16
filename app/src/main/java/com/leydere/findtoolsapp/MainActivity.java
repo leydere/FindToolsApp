@@ -22,10 +22,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //TODO need to add find by view id's
         button_find_nav = findViewById(R.id.button_find_nav);
         button_add_nav = findViewById(R.id.button_add_nav);
 
+        button_find_nav.setOnClickListener(new View.OnClickListener(){
+           @Override
+           public void onClick(View v) {
+               Intent intentFind = new Intent(MainActivity.this, FindToolActivity.class);
+               startActivity(intentFind);
+           }
+        });
+
+        button_add_nav.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intentAdd = new Intent(MainActivity.this, AddToolActivity.class);
+                startActivity(intentAdd);
+            }
+        });
+
+        //region Bottom Nav Bar and Support
         //code to support override of bottom nav animation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -57,22 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-        button_find_nav.setOnClickListener(new View.OnClickListener(){
-           @Override
-           public void onClick(View v) {
-               Intent intentFind = new Intent(MainActivity.this, FindToolActivity.class);
-               startActivity(intentFind);
-           }
-        });
-
-        button_add_nav.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intentAdd = new Intent(MainActivity.this, AddToolActivity.class);
-                startActivity(intentAdd);
-            }
-        });
+        //endregion
 
     }
 }

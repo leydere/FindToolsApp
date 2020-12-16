@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,7 @@ public class FindToolActivity extends AppCompatActivity {
     Button button_find;
     ListView find_tool_listview;
     ArrayAdapter toolArrayAdapter;
+    DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +37,46 @@ public class FindToolActivity extends AppCompatActivity {
         editTextFindTool = findViewById(R.id.editTextFindTool);
         button_find = findViewById(R.id.button_find);
         find_tool_listview = findViewById(R.id.find_tool_listview);
+        databaseHelper = new DatabaseHelper(FindToolActivity.this);
 
+
+
+        button_find.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                String searchQuery = editTextFindTool.getText().toString();
+
+                List<String> resultsFound =databaseHelper.nameSearchResults(searchQuery);
+                ArrayAdapter namesArrayAdapter = new ArrayAdapter<String>(FindToolActivity.this, android.R.layout.simple_list_item_1, resultsFound);
+                find_tool_listview.setAdapter(namesArrayAdapter);
+
+                /*
+                //could bypass resultsFound by calling directly in array adapter below
+                //keeping for now so I can better track the flow
+                List<ToolModel> resultsFound = databaseHelper.getSearchResults(searchQuery);
+                //TODO clean up search results
+                toolArrayAdapter = new ArrayAdapter<ToolModel>(FindToolActivity.this, android.R.layout.simple_list_item_1, resultsFound);
+                find_tool_listview.setAdapter(toolArrayAdapter);
+
+                 */
+
+            }
+        });
+
+        //function to be used to navigate to tool details
+        find_tool_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //ToolModel clickedTool = (ToolModel) parent.getItemAtPosition(position);
+                //int clickedToolId = clickedTool.getId();
+                //TODO get toolID, navigate to new activity, display details in details activity
+                Toast.makeText(FindToolActivity.this, "you clicked a list item", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        //region Bottom Nav Bar and Support
         //code to support override of bottom nav animation
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -43,24 +84,6 @@ public class FindToolActivity extends AppCompatActivity {
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(1);
         menuItem.setChecked(true);
-
-        button_find.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-
-                String searchQuery = editTextFindTool.getText().toString();
-                //Toast.makeText(FindToolActivity.this, "SEARCH: " + searchQuery, Toast.LENGTH_SHORT).show();
-
-                DatabaseHelper databaseHelper = new DatabaseHelper(FindToolActivity.this);
-                List<ToolModel> resultsFound = databaseHelper.getSearchResults(searchQuery);
-                //Toast.makeText(FindToolActivity.this, resultsFound.toString(), Toast.LENGTH_LONG).show();
-
-                //TODO clean up search results
-                toolArrayAdapter = new ArrayAdapter<ToolModel>(FindToolActivity.this, android.R.layout.simple_list_item_1, resultsFound);
-                find_tool_listview.setAdapter(toolArrayAdapter);
-            }
-        });
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -84,6 +107,7 @@ public class FindToolActivity extends AppCompatActivity {
                 return false;
             }
         });
+        //endregion
     }
 
     // create method that displays results found from upper method
