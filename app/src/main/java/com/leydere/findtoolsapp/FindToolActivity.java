@@ -47,19 +47,26 @@ public class FindToolActivity extends AppCompatActivity {
 
                 String searchQuery = editTextFindTool.getText().toString();
 
-                List<String> resultsFound =databaseHelper.nameSearchResults(searchQuery);
+                /*
+                List<String> resultsFound = databaseHelper.nameSearchResults(searchQuery);
                 ArrayAdapter namesArrayAdapter = new ArrayAdapter<String>(FindToolActivity.this, android.R.layout.simple_list_item_1, resultsFound);
                 find_tool_listview.setAdapter(namesArrayAdapter);
 
-                /*
+                 */
+
                 //could bypass resultsFound by calling directly in array adapter below
                 //keeping for now so I can better track the flow
-                List<ToolModel> resultsFound = databaseHelper.getSearchResults(searchQuery);
+                /*List<ToolModel> resultsFound = databaseHelper.getSearchResults(searchQuery);
                 //TODO clean up search results
                 toolArrayAdapter = new ArrayAdapter<ToolModel>(FindToolActivity.this, android.R.layout.simple_list_item_1, resultsFound);
+                find_tool_listview.setAdapter(toolArrayAdapter);*/
+
+                //This is attempt at custom adapter
+                List<ToolModel> resultsFound = databaseHelper.getSearchResults(searchQuery);
+                toolArrayAdapter = new ToolResultsArrayAdapter(FindToolActivity.this, resultsFound);
                 find_tool_listview.setAdapter(toolArrayAdapter);
 
-                 */
+
 
             }
         });
@@ -68,10 +75,10 @@ public class FindToolActivity extends AppCompatActivity {
         find_tool_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //ToolModel clickedTool = (ToolModel) parent.getItemAtPosition(position);
-                //int clickedToolId = clickedTool.getId();
+                ToolModel clickedTool = (ToolModel) parent.getItemAtPosition(position);
+                int clickedToolId = clickedTool.getId();
                 //TODO get toolID, navigate to new activity, display details in details activity
-                Toast.makeText(FindToolActivity.this, "you clicked a list item", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FindToolActivity.this, "tool id =  " + clickedToolId, Toast.LENGTH_SHORT).show();
             }
         });
 

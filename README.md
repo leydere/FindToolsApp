@@ -27,3 +27,7 @@
  
 https://stackoverflow.com/questions/41649494/how-to-remove-icon-animation-for-bottom-navigation-view-in-android
 https://stackoverflow.com/questions/51342200/cannot-resolve-method-setshiftingmodeboolean-in-bottomnavigationview
+
+ This link for helping me figure out how to make a custom array adapter for my search results:
+
+https://www.geeksforgeeks.org/custom-arrayadapter-with-listview-in-android/?ref=rp
