@@ -1,6 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/black">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relLayout">
+
+        <!-- top relative layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/relLayoutTopBar"
+            android:layout_alignParentTop="true">
+
+            <!-- top toolbar -->
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/toolbarTop">
+
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+        </RelativeLayout>
+
+        <!-- middle relative layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relLayoutMiddle"
+            android:layout_below="@+id/relLayoutTopBar"
+            android:layout_above="@+id/relLayoutBotBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/mainLinearLayout"
+                android:orientation="vertical">
+
+                <!-- this is where the contents of the activity will go -->
+
+                    <!-- had intended this to go in a nested horizontal LinearLayout but
+                    will not adhere to right gravity when within -->
+                    <!-- TODO correct method would be horizontal relative layout -->
+                    <!-- TODO image will go in left corner of this horizontal layout -->
+                    <ImageButton
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginRight="32dp"
+                        android:src="@drawable/ic_cancel_48"
+                        android:backgroundTint="@color/black"
+                        android:tint="@color/dominantGrey"
+                        android:id="@+id/button_close_details" />
+                        <!-- end future horizontal relative layout here -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dominantGrey"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Name:"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dominantGrey"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/toolNameTextHere"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dominantGrey"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Location:"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dominantGrey"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/toolLocationTextHere"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dominantGrey"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginTop="32dp"
+                    android:text="Sub-Location:"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dominantGrey"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/toolSubLocationTextHere"/>
+
+
+
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- bottom relative layout -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/relLayoutBotBar"
+            android:layout_alignParentBottom="true">
+
+            <!-- bottom toolbar -->
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/bottomNavView_Bar"
+                android:background="@color/dominantGrey"
+                app:menu="@menu/bottom_navigation_menu"
+                app:labelVisibilityMode="unlabeled"
+                app:itemIconTint="@drawable/tab_color"
+                app:itemTextColor="@drawable/tab_color">
+
+
+            </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

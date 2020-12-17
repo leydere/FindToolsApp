@@ -41,12 +41,12 @@ public class ToolDetailActivity extends AppCompatActivity {
                         break;
 
                     case R.id.ic_search:
-                        Intent intentFind = new Intent(MainActivity.this, FindToolActivity.class);
+                        Intent intentFind = new Intent(ToolDetailActivity.this, FindToolActivity.class);
                         startActivity(intentFind);
                         break;
 
                     case R.id.ic_add:
-                        Intent intentAdd = new Intent(MainActivity.this, AddToolActivity.class);
+                        Intent intentAdd = new Intent(ToolDetailActivity.this, AddToolActivity.class);
                         startActivity(intentAdd);
                         break;
                 }
