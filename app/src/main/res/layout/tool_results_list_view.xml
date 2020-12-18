@@ -12,7 +12,7 @@
     <TextView
         android:id="@+id/toolNameText"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="48dp"
         android:gravity="center_vertical|left"
         android:textColor="@color/black"
         tools:ignore="RtlHardcoded"

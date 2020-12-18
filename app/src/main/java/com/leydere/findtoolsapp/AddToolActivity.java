@@ -41,7 +41,6 @@ public class AddToolActivity extends AppCompatActivity {
                 ToolModel toolModel;
                 try{
                     toolModel = new ToolModel(editTextToolName.getText().toString(), editTextLocation.getText().toString(), editTextSubLocation.getText().toString(), "dummyPath", false);
-                    Toast.makeText(AddToolActivity.this, toolModel.toString(), Toast.LENGTH_LONG).show();
                 }
                 catch (Exception e) {
                     Toast.makeText(AddToolActivity.this, "input error", Toast.LENGTH_SHORT).show();
@@ -51,7 +50,12 @@ public class AddToolActivity extends AppCompatActivity {
                 DatabaseHelper databaseHelper = new DatabaseHelper(AddToolActivity.this);
                 boolean success = databaseHelper.addRecord(toolModel);
 
-                Toast.makeText(AddToolActivity.this, "Success == " + success, Toast.LENGTH_SHORT).show();
+                if (success == true) {
+                    Toast.makeText(AddToolActivity.this, "record added successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(AddToolActivity.this, "record added failure", Toast.LENGTH_SHORT).show();
+                }
+
 
                 editTextToolName.setText("");
                 editTextLocation.setText("");
