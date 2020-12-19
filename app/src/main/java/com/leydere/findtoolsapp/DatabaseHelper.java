@@ -96,7 +96,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return compiledResults;
     }
 
-    //names only based on search result
+    //names only based on search result (pretty sure I used this in SENG420-demo-branch and then removed use)
     public List<String> nameSearchResults(String textInput){
         List<String> compiledResults = new ArrayList();
         String queryString = "SELECT * FROM " + TABLE_TOOL_COLLECTION +
@@ -119,5 +119,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return compiledResults;
     }
 
-    //TODO build the method to display/return a single record for detail activity view
+    // SQL Query that returns a single ToolModel based off an int input, that is the ToolID within the db
+    public ToolModel getRequestedTool(int clickedToolID){
+        String queryString = "SELECT * FROM " + TABLE_TOOL_COLLECTION +
+                " WHERE TOOL_ID = " + clickedToolID;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        ToolModel requestedTool = (ToolModel) cursor;
+
+        cursor.close();
+        db.close();
+
+        return requestedTool;
+    }
 }
