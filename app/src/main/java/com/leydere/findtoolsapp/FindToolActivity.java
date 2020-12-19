@@ -61,12 +61,11 @@ public class FindToolActivity extends AppCompatActivity {
                 ToolModel clickedTool = (ToolModel) parent.getItemAtPosition(position);
                 int clickedToolId = clickedTool.getId();
 
-                Toast.makeText(FindToolActivity.this, "tool id =  " + clickedToolId, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(FindToolActivity.this, "tool id =  " + clickedToolId, Toast.LENGTH_SHORT).show();
 
-                //TODO get toolID, navigate to new activity, display details in details activity
-
-                Intent intentAdd = new Intent(FindToolActivity.this, ToolDetailActivity.class);
-                startActivity(intentAdd);
+                Intent intentDetailNav = new Intent(FindToolActivity.this, ToolDetailActivity.class);
+                intentDetailNav.putExtra("CLICKED_TOOL_ID", clickedToolId);
+                startActivity(intentDetailNav);
             }
         });
 

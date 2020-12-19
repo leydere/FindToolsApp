@@ -31,3 +31,8 @@ https://stackoverflow.com/questions/51342200/cannot-resolve-method-setshiftingmo
  This link for helping me figure out how to make a custom array adapter for my search results:
 
 https://www.geeksforgeeks.org/custom-arrayadapter-with-listview-in-android/?ref=rp
+
+ This link for helping me understand how to pass a bit of data between activities using EXTRAS:
+
+https://stackoverflow.com/questions/2091465/how-do-i-pass-data-between-activities-in-android-application
+

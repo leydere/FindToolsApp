@@ -122,11 +122,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // SQL Query that returns a single ToolModel based off an int input, that is the ToolID within the db
     public ToolModel getRequestedTool(int clickedToolID){
         String queryString = "SELECT * FROM " + TABLE_TOOL_COLLECTION +
-                " WHERE TOOL_ID = " + clickedToolID;
+                " WHERE " + COLUMN_ID + "=" + clickedToolID;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(queryString, null);
 
-        ToolModel requestedTool = (ToolModel) cursor;
+        //dev note: database stores information about tool models, not tool models
+        //cont: cursor.moveToFirst() seems to be essential as it points to where in the cursor
+        cursor.moveToFirst();
+        int toolID = cursor.getInt(0);
+        String toolName = cursor.getString(1);
+        String location = cursor.getString(2);
+        String subLocation = cursor.getString(3);
+        String imagePath = cursor.getString(4);
+        boolean isCheckedOut = cursor.getInt(5) == 1 ? true: false; //ternary operator = basically an if statement that reads if result is equal to 1 return true else return false
+
+        ToolModel requestedTool = new ToolModel(toolID, toolName, location,subLocation,imagePath,isCheckedOut);
 
         cursor.close();
         db.close();
