@@ -19,6 +19,7 @@ public class WorkbenchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workbench);
 
+        // TODO onCreate populate list with all isCheckedOut == true records
 
 
         //region Bottom Nav Bar and Support

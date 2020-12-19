@@ -46,6 +46,37 @@
             android:layout_above="@+id/relLayoutBotBar">
 
             <!-- TODO insert activity contents here -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_workbench"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_workbench_88"
+                    android:backgroundTint="@color/black"
+                    android:tint="@color/dominantGrey"
+                    android:layout_marginTop="32dp" />
+
+                <ListView
+                    android:id="@+id/workbench_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginRight="56dp"
+                    android:background="@color/dominantGrey"
+                    android:textColor="@color/black"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopStart="8dp" />
+
+            </LinearLayout>
+
 
         </RelativeLayout>
 
