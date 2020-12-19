@@ -66,7 +66,7 @@
                         android:src="@drawable/ic_cancel_48"
                         android:backgroundTint="@color/black"
                         android:tint="@color/dominantGrey"
-                        android:id="@+id/button_close_details" />
+                        android:id="@+id/button_close_detail" />
                         <!-- end future horizontal relative layout here -->
 
                 <TextView
