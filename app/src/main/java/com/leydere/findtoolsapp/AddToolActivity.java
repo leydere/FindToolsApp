@@ -101,6 +101,10 @@ public class AddToolActivity extends AppCompatActivity {
 
                     case R.id.ic_add:
                         break;
+                    case R.id.ic_workbench:
+                        Intent intentWorkbench = new Intent(AddToolActivity.this, WorkbenchActivity.class);
+                        startActivity(intentWorkbench);
+                        break;
                 }
 
 

@@ -19,6 +19,7 @@
         <activity android:name=".FindToolActivity"></activity>
         <activity android:name=".AddToolActivity"></activity>
         <activity android:name=".ToolDetailActivity"></activity>
+        <activity android:name=".WorkbenchActivity"></activity>
     </application>
 
 </manifest>
