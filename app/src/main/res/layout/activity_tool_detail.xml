@@ -129,19 +129,8 @@
             android:id="@+id/relLayoutBotBar"
             android:layout_alignParentBottom="true">
 
-            <!-- bottom toolbar -->
-            <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/bottomNavView_Bar"
-                android:background="@color/dominantGrey"
-                app:menu="@menu/bottom_navigation_menu"
-                app:labelVisibilityMode="unlabeled"
-                app:itemIconTint="@drawable/tab_color"
-                app:itemTextColor="@drawable/tab_color">
+            <!-- removed bottom navbar -->
 
-
-            </com.google.android.material.bottomnavigation.BottomNavigationView>
 
         </RelativeLayout>
 

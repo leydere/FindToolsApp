@@ -22,40 +22,7 @@ public class ToolDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tool_detail);
 
 
-
-        //region Bottom Nav Bar and Support
-        //code to support override of bottom nav animation
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
-        //supports correct icon being highlighted
-        Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(0);
-        menuItem.setChecked(true);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()){
-
-                    case R.id.ic_home:
-                        break;
-
-                    case R.id.ic_search:
-                        Intent intentFind = new Intent(ToolDetailActivity.this, FindToolActivity.class);
-                        startActivity(intentFind);
-                        break;
-
-                    case R.id.ic_add:
-                        Intent intentAdd = new Intent(ToolDetailActivity.this, AddToolActivity.class);
-                        startActivity(intentAdd);
-                        break;
-                }
-
-
-                return false;
-            }
-        });
-        //endregion
+        
 
     }
 }
