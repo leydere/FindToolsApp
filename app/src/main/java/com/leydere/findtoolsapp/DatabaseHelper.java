@@ -145,7 +145,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //method that changes boolean value of isCheckedOut
-
     public void toggleCheckedOutStatus(int selectedToolID, boolean selectedToolStatus) {
         SQLiteDatabase db = this.getWritableDatabase();
         boolean flipperBool = selectedToolStatus == true ? false : true;
@@ -154,7 +153,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 " WHERE " + COLUMN_ID + "=" + selectedToolID;
 
         db.execSQL(queryString);
+    }
 
-        //return flipperBool;
+    //method to query database for all isCheckedOut == true records
+    public List<ToolModel> getCheckedOutToolsList(){
+        List<ToolModel> compiledResults = new ArrayList();
+        String queryString = "SELECT * FROM " + TABLE_TOOL_COLLECTION +
+                " WHERE " + COLUMN_IS_CHECKED_OUT + " = 1";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(queryString, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int toolID = cursor.getInt(0);
+                String toolName = cursor.getString(1);
+                String location = cursor.getString(2);
+                String subLocation = cursor.getString(3);
+                String imagePath = cursor.getString(4);
+                boolean isCheckedOut = cursor.getInt(5) == 1 ? true: false; //ternary operator = basically an if statement that reads if result is equal to 1 return true else return false
+
+                ToolModel newTool = new ToolModel(toolID, toolName, location,subLocation,imagePath,isCheckedOut);
+                compiledResults.add(newTool);
+                //TODO probably need to check if tool is checked out or not at some point
+
+            } while (cursor.moveToNext());
+        } else {
+            //TODO maybe some sort of exception or feedback?
+        }
+
+        cursor.close();
+        db.close();
+
+        return compiledResults;
     }
 }
