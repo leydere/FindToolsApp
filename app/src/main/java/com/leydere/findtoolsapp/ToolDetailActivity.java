@@ -20,11 +20,11 @@ import static java.lang.Integer.parseInt;
 
 public class ToolDetailActivity extends AppCompatActivity {
 
-ImageButton button_close_detail;
+ImageButton button_close_detail, button_checkout;
 int clickedToolId;
 ToolModel clickedTool;
 DatabaseHelper databaseHelper;
-TextView toolNameTextHere, toolLocationTextHere, toolSubLocationTextHere;
+TextView toolNameTextHere, toolLocationTextHere, toolSubLocationTextHere, toolStatusTextHere;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +32,11 @@ TextView toolNameTextHere, toolLocationTextHere, toolSubLocationTextHere;
         setContentView(R.layout.activity_tool_detail);
 
         button_close_detail = findViewById(R.id.button_close_detail);
+        button_checkout = findViewById(R.id.button_checkout);
         toolNameTextHere = findViewById(R.id.toolNameTextHere);
         toolLocationTextHere = findViewById(R.id.toolLocationTextHere);
         toolSubLocationTextHere = findViewById(R.id.toolSubLocationTextHere);
+        toolStatusTextHere = findViewById(R.id.toolStatusTextHere);
         databaseHelper = new DatabaseHelper(ToolDetailActivity.this);
 
         try {
@@ -43,6 +45,8 @@ TextView toolNameTextHere, toolLocationTextHere, toolSubLocationTextHere;
             toolNameTextHere.setText(clickedTool.getToolName());
             toolLocationTextHere.setText(clickedTool.getLocation());
             toolSubLocationTextHere.setText(clickedTool.getSubLocation());
+            //boolean isCheckedOut = cursor.getInt(5) == 1 ? true: false;
+            toolStatusTextHere.setText(clickedTool.getIsCheckedOut() == true ? "Checked out" : "Checked in");
         } catch (Exception e) {
             Toast.makeText(ToolDetailActivity.this, "tool detail failed to load", Toast.LENGTH_SHORT).show();
         }
@@ -56,6 +60,16 @@ TextView toolNameTextHere, toolLocationTextHere, toolSubLocationTextHere;
                 startActivity(intentFind);
 
                 //TODO maintain state of FindToolActivity for when navigated back to
+            }
+        });
+
+        button_checkout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+
+                //TODO functionality where item is checkedout/checkedin toggle when clicked
+                //TODO refresh display once checkout status is displayed
             }
         });
 
