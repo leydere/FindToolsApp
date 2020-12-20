@@ -25,6 +25,7 @@ public class WorkbenchActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     ArrayAdapter toolArrayAdapter;
     int clickedToolId;
+    Intent popupwindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +44,8 @@ public class WorkbenchActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ToolModel clickedTool = (ToolModel) parent.getItemAtPosition(position);
                 clickedToolId = clickedTool.getId();
-                Toast.makeText(WorkbenchActivity.this, "tool id =  " + clickedToolId, Toast.LENGTH_SHORT).show();
 
-                //TODO popupwindow for future versions
+                //calls "popupwindow" (not convinced that is what I created)
                 openPopUpWindow();
                 //TODO current version navigate to tool details <NOOOOOOOOOOOOOOOOOOOO>
                 //this is slop garbage
@@ -56,7 +56,7 @@ public class WorkbenchActivity extends AppCompatActivity {
             }
 
             private void openPopUpWindow() {
-                Intent popupwindow = new Intent(WorkbenchActivity.this, PopupWindow.class);
+                popupwindow = new Intent(WorkbenchActivity.this, ReturnToolPopUpWindow.class);
                 popupwindow.putExtra("CLICKED_TOOL_ID", clickedToolId);
                 startActivity(popupwindow);
             }

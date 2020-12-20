@@ -143,7 +143,6 @@
                     android:layout_marginRight="56dp"
                     android:layout_marginLeft="56dp"
                     android:layout_marginTop="40dp">
-
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -158,8 +157,6 @@
                             android:textSize="16sp"
                             android:text="Click cart to check out or return tool"/>
                     </RelativeLayout>
-
-
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -173,8 +170,6 @@
                             android:src="@drawable/ic_cart_48"
                             android:tint="@color/dominantGrey" />
                     </RelativeLayout>
-
-
                 </RelativeLayout>
 
 
