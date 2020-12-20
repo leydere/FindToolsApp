@@ -56,11 +56,11 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/find_button_text"
-                        android:drawableTop="@drawable/ic_search_88"
+                        android:drawableTop="@drawable/ic_find_tool_inverse_icon"
                         android:backgroundTint="@color/black"
                         android:drawableTint="@color/dominantGrey"
                         android:textColor="@color/dominantGrey"
-                        android:layout_marginTop="88dp"/>
+                        android:layout_marginTop="16dp"/>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textFieldFindTool"

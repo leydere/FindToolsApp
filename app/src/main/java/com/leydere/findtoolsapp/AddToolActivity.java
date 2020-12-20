@@ -20,7 +20,7 @@ import java.util.List;
 
 public class AddToolActivity extends AppCompatActivity {
 
-    Button button_submit, button_camera;
+    Button button_add, button_camera;
     EditText editTextToolName, editTextLocation, editTextSubLocation;
 
     @Override
@@ -28,13 +28,13 @@ public class AddToolActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_tool);
 
-        button_submit = findViewById(R.id.button_submit);
+        button_add = findViewById(R.id.button_add);
         button_camera = findViewById(R.id.button_camera);
         editTextToolName = findViewById(R.id.editTextToolName);
         editTextLocation = findViewById(R.id.editTextLocaton);
         editTextSubLocation = findViewById(R.id.editTextSubLocation);
 
-        button_submit.setOnClickListener(new View.OnClickListener(){
+        button_add.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
 

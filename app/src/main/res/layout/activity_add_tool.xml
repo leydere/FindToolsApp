@@ -51,17 +51,19 @@
                 android:id="@+id/addLinearLayout"
                 android:orientation="vertical">
 
-                <ImageButton
+                <Button
                     android:id="@+id/button_add"
-                    android:layout_width="88dp"
-                    android:layout_height="88dp"
-                    android:layout_gravity="right"
-                    android:src="@drawable/ic_add_88"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="TAP ICON TO ADD"
+                    android:drawableTop="@drawable/ic_add_tool_inverse_icon"
                     android:backgroundTint="@color/black"
-                    android:tint="@color/dominantGrey"
+                    android:drawableTint="@color/dominantGrey"
+                    android:textColor="@color/dominantGrey"
                     android:layout_marginTop="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginBottom="16dp"/>
+
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textFieldToolName"
@@ -130,54 +132,40 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="56dp"
                     android:layout_marginRight="56dp"
-                    android:layout_marginTop="16dp">
-
-                    <!-- shape -->
-                    <Button
-                        android:layout_width="128dp"
-                        android:layout_height="128dp"
-                        android:background="@drawable/dotted_line_pic_box"
-                        android:layout_gravity="center_vertical"/>
-                    <Space
-                        android:layout_height="match_parent"
-                        android:layout_width="50dp"/>
-                    <!-- camera button -->
-                    <Button
-                        android:id="@+id/button_camera"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginTop="32dp">
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:backgroundTint="@color/black"
-                        android:drawableBottom="@drawable/ic_add_a_photo_88"
-                        android:drawableTint="@color/dominantGrey"
-                        android:text="Add Pic"
-                        android:textColor="@color/dominantGrey" />
+                        android:layout_alignParentLeft="true">
+                        <Button
+                            android:layout_width="128dp"
+                            android:layout_height="128dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/dotted_line_pic_box"
+                            android:layout_gravity="center_vertical"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true">
+                        <Button
+                            android:id="@+id/button_camera"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:backgroundTint="@color/black"
+                            android:drawableBottom="@drawable/ic_add_a_photo_88"
+                            android:drawableTint="@color/dominantGrey"
+                            android:text="Add Pic"
+                            android:textColor="@color/dominantGrey" />
+                    </RelativeLayout>
+                </RelativeLayout>
 
-
-                </LinearLayout>
-
-                <!-- submit button -->
-
-                <Button
-                    android:id="@+id/button_submit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="32dp"
-                    android:layout_marginTop="16dp"
-                    android:text="Add Tool"
-                    android:drawableLeft="@drawable/ic_check_24"
-                    android:backgroundTint="@color/dominantGrey"
-                    android:drawableTint="@color/black"
-                    android:textColor="@color/black"
-                    />
 
 
             </LinearLayout>
