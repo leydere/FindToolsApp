@@ -69,23 +69,12 @@
                         android:id="@+id/button_close_detail" />
                         <!-- end future horizontal relative layout here -->
 
-                <ImageButton
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="right"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginRight="56dp"
-                    android:src="@drawable/ic_cart_48"
-                    android:backgroundTint="@color/black"
-                    android:tint="@color/dominantGrey"
-                    android:id="@+id/button_checkout" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/dominantGrey"
                     android:layout_marginLeft="56dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="40dp"
                     android:textSize="16sp"
                     android:text="Name:"/>
                 <TextView
@@ -147,6 +136,48 @@
                     android:layout_marginTop="8dp"
                     android:textSize="24sp"
                     android:id="@+id/toolStatusTextHere"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="56dp"
+                    android:layout_marginLeft="56dp"
+                    android:layout_marginTop="40dp">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true">
+                        <TextView
+                            android:layout_width="156dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/dominantGrey"
+                            android:textSize="16sp"
+                            android:text="Click cart to check out or return tool"/>
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true">
+                        <ImageButton
+                            android:id="@+id/button_checkout"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:gravity="right"
+                            android:backgroundTint="@color/black"
+                            android:src="@drawable/ic_cart_48"
+                            android:tint="@color/dominantGrey" />
+                    </RelativeLayout>
+
+
+                </RelativeLayout>
+
+
 
 
 

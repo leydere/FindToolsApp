@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +24,7 @@ public class WorkbenchActivity extends AppCompatActivity {
     ListView workbench_listview;
     DatabaseHelper databaseHelper;
     ArrayAdapter toolArrayAdapter;
+    int clickedToolId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +34,33 @@ public class WorkbenchActivity extends AppCompatActivity {
         workbench_listview = findViewById(R.id.workbench_listview);
         databaseHelper = new DatabaseHelper(WorkbenchActivity.this);
 
-        // TODO onCreate populate list with all isCheckedOut == true records
         List<ToolModel> resultsFound = databaseHelper.getCheckedOutToolsList();
         toolArrayAdapter = new ToolResultsArrayAdapter(WorkbenchActivity.this, resultsFound);
         workbench_listview.setAdapter(toolArrayAdapter);
+
+        workbench_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ToolModel clickedTool = (ToolModel) parent.getItemAtPosition(position);
+                clickedToolId = clickedTool.getId();
+                Toast.makeText(WorkbenchActivity.this, "tool id =  " + clickedToolId, Toast.LENGTH_SHORT).show();
+
+                //TODO popupwindow for future versions
+                openPopUpWindow();
+                //TODO current version navigate to tool details <NOOOOOOOOOOOOOOOOOOOO>
+                //this is slop garbage
+                /*Intent intentDetailNav = new Intent(WorkbenchActivity.this, ToolDetailActivity.class);
+                intentDetailNav.putExtra("CLICKED_TOOL_ID", clickedToolId);
+                startActivity(intentDetailNav);*/
+
+            }
+
+            private void openPopUpWindow() {
+                Intent popupwindow = new Intent(WorkbenchActivity.this, PopupWindow.class);
+                popupwindow.putExtra("CLICKED_TOOL_ID", clickedToolId);
+                startActivity(popupwindow);
+            }
+        });
 
 
         //region Bottom Nav Bar and Support

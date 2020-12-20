@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FindToolsApp">
+        <activity android:name=".ReturnToolPopUpWindow"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,10 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FindToolActivity"></activity>
-        <activity android:name=".AddToolActivity"></activity>
-        <activity android:name=".ToolDetailActivity"></activity>
-        <activity android:name=".WorkbenchActivity"></activity>
+        <activity android:name=".FindToolActivity" />
+        <activity android:name=".AddToolActivity" />
+        <activity android:name=".ToolDetailActivity" />
+        <activity android:name=".WorkbenchActivity" />
     </application>
 
 </manifest>
