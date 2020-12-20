@@ -66,10 +66,9 @@ TextView toolNameTextHere, toolLocationTextHere, toolSubLocationTextHere, toolSt
         button_checkout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
-
-                //TODO functionality where item is checkedout/checkedin toggle when clicked
-                //TODO refresh display once checkout status is displayed
+                databaseHelper.toggleCheckedOutStatus(clickedToolId, clickedTool.getIsCheckedOut());
+                clickedTool = databaseHelper.getRequestedTool(clickedToolId);
+                toolStatusTextHere.setText(clickedTool.getIsCheckedOut() == true ? "Checked out" : "Checked in");
             }
         });
 

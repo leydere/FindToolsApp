@@ -143,4 +143,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return requestedTool;
     }
+
+    //method that changes boolean value of isCheckedOut
+
+    public void toggleCheckedOutStatus(int selectedToolID, boolean selectedToolStatus) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        boolean flipperBool = selectedToolStatus == true ? false : true;
+        String queryString = "UPDATE " + TABLE_TOOL_COLLECTION +
+                " SET " + COLUMN_IS_CHECKED_OUT + " = " + flipperBool +
+                " WHERE " + COLUMN_ID + "=" + selectedToolID;
+
+        db.execSQL(queryString);
+
+        //return flipperBool;
+    }
 }
